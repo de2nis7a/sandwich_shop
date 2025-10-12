@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:ui' as ui;
 
 void main() {
   runApp(const MyApp());
@@ -104,11 +105,26 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            ShaderMask(
+              //bounds is a Rect object (short for "rectangle") that represents the dimensions and position of the widget.
+                shaderCallback: (bounds) => ui.Gradient.linear(
+                  const Offset(0, 100),
+                  const Offset(250,100),
+                  <Color>[
+                    const Color.fromARGB(255, 23, 189, 31),
+                    const Color.fromARGB(255, 210, 170, 83),
+                  ],
+                  
+                ),
+                child: Text(
+                  ' Welcome to my shop! ',
+                  style: const TextStyle(
+                    fontSize: 40,
+                    fontStyle: FontStyle.italic,
+                    color: Colors.white, // Required for ShaderMask ShaderMask requires a base color to apply the gradient.
+                  ),
+                ),
+              ),
           ],
         ),
       ),
