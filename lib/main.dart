@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
 
-void main() {
-  runApp(const MyApp());
-}
+void main() {}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -105,6 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             ShaderMask(
+              //Practic, ShaderMask combină un shader (de exemplu un gradient) cu copilul său (imagine, text, icon etc.) într-un mod vizual special.
               //bounds is a Rect object (short for "rectangle") that represents the dimensions and position of the widget.
               shaderCallback: (bounds) => ui.Gradient.linear(
                 const Offset(0, 100),
