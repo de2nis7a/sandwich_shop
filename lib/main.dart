@@ -40,36 +40,6 @@ class App extends StatelessWidget {
             )));
   }
 }
-//           Row(
-//               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//               crossAxisAlignment: CrossAxisAlignment.center,
-//               children: [
-//                 Expanded(
-//                     child: Container(
-//                         width: 500,
-//                         height: 300,
-//                         color: Colors.blue,
-//                         child:
-//                             const Center(child: OrderItemDisplay(3, 'BLT')))),
-//                 Expanded(
-//                   child: Container(
-//                       width: 500,
-//                       height: 300,
-//                       color: Colors.blue,
-//                       child: const Center(child: OrderItemDisplay(5, 'Club'))),
-//                 ),
-//                 Expanded(
-//                   child: Container(
-//                       width: 500,
-//                       height: 300,
-//                       color: Colors.blue,
-//                       child:
-//                           const Center(child: OrderItemDisplay(5, 'Veggie'))),
-//                 ),
-//               ])),
-//     );
-//   }
-// }
 
 class OrderItemDisplay extends StatelessWidget {
   final int quantity;
@@ -79,6 +49,21 @@ class OrderItemDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('$quantity $itemType sandwich(es): ${'🥪' * quantity}');
+    return Text(
+      '$quantity $itemType sandwich(es): ${'🥪' * quantity}',
+      textAlign: TextAlign.center,
+      style: TextStyle(
+        color: Colors.greenAccent,
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+        shadows: List.from([
+          const Shadow(
+            color: Colors.black,
+            offset: Offset(2, 2),
+            blurRadius: 3,
+          ),
+        ]),
+      ),
+    );
   }
 }
